@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks</title>
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Unit Code</th>
+                <th>Unit Name</th>
+                <th>CAT Mark</th>
+                <th>Exam Mark</th>
+                <th>Total Mark</th>
+                <th>Teacher Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mark in marks_data %}
+            <tr>
+                <td>{{ mark.unit_code }}</td>
+                <td>{{ mark.unit_name }}</td>
+                <td>{{ mark.cat_mark }}</td>
+                <td>{{ mark.exam_mark }}</td>
+                <td>{{ mark.total_mark }}</td>
+                <td>{{ mark.teacher_comment }}</td>
+            </tr>
+            {% endfor %}
+            <div>
+                <a href="{% url 'update_marks' pk=student_approval.pk %}" class="btn btn-success"style="font-size:10px">Update Marks</a>
+            </div>
+        </tbody>
+    </table>
+    
+        </tbody>
+    </table>
+    
+    
+    <!-- /.panel-body -->
+</body>
+{% include 'sharedfiles/footer.html' %}
+</html>

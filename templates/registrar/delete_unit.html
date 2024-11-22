@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+    <title>Enter Marks</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'assets/css/metisMenu.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/css/startmin.css' %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="wrapper">
+    <!-- Navigation -->
+    {% include 'sharedfiles/topnavigation.html' %}
+    {% include 'registrar/navigation.html' %}
+    <!-- /.sidebar -->
+
+    <div id="page-wrapper" style="padding-top: 30px;">
+        <h3 style="margin-top: 50px;">Delete Units</h3>
+        <p>Are you sure you want to delete the units for <b> {{ unit_registration.approved_student.student.student_id.first_name }} </b>? </p>
+    
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger confirm-btn">Confirm Delete</button>
+            
+    </div>
+    
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{% static 'assets/js/metisMenu.min.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'assets/js/startmin.js' %}"></script>
+</body>
+{% include 'sharedfiles/footer.html' %}
+</html>

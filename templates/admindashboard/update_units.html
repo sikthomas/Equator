@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Update Units</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/css/startmin.css' %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div id="wrapper">
+    {% include 'sharedfiles/topnavigation.html' %}
+    {% include 'admindashboard/navigation.html' %}
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Update Unit Registration</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Update Unit Registration for {{ unit_registration.student.student_id.first_name }} {{ unit_registration.student.student_id.last_name }}
+                        </div>
+                        <div class="panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}  <!-- Render the form fields -->
+                                <button type="submit" class="btn btn-primary">Update Units</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+    <title>Admissions</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'assets/css/metisMenu.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static  'assets/css/startmin.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        {% include 'sharedfiles/topnavigation.html' %}
+        {% include 'registrar/navigation.html' %}
+        <!-- /.sidebar -->
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3 class="page-header">Admission Form</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Student Personal Details
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                      
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.student_id.label_tag }}
+        {{ form.student_id }}
+    </div>
+    <div class="form-group">
+        {{ form.gender.label_tag }}
+        {{ form.gender }}
+    </div>
+    <div class="form-group">
+        {{ form.birthday.label_tag }}
+        {{ form.birthday }}
+    </div>
+    <div class="form-group">
+        {{ form.marital_status.label_tag }}
+        {{ form.marital_status }}
+    </div>
+    <div class="form-group">
+        {{ form.mobile_no.label_tag }}
+        {{ form.mobile_no }}
+    </div>
+    <div class="form-group">
+        {{ form.religion.label_tag }}
+        {{ form.religion }}
+    </div>
+    <div class="form-group">
+        {{ form.county.label_tag }}
+        {{ form.county }}
+    </div>
+    <div class="form-group">
+        {{ form.subcounty.label_tag }}
+        {{ form.subcounty }}
+    </div>
+    <div class="form-group">
+        {{ form.permanent_address.label_tag }}
+        {{ form.permanent_address }}
+    </div>
+    <div class="form-group">
+        {{ form.postal_code.label_tag }}
+        {{ form.postal_code }}
+    </div>
+    <div class="form-group">
+        {{ form.town.label_tag }}
+        {{ form.town }}
+    </div>
+    <div class="form-group">
+        {{ form.kin_relationship.label_tag }}
+        {{ form.kin_relationship }}
+    </div>
+    <div class="form-group">
+        {{ form.kin_firstname.label_tag }}
+        {{ form.kin_firstname }}
+    </div>
+    <div class="form-group">
+        {{ form.kin_lastname.label_tag }}
+        {{ form.kin_lastname }}
+    </div>
+    <div class="form-group">
+        {{ form.kin_address.label_tag }}
+        {{ form.kin_address }}
+    </div>
+    <div class="form-group">
+        {{ form.kin_town.label_tag }}
+        {{ form.kin_town }}
+    </div>
+    <div class="form-group">
+        {{ form.kin_contact.label_tag }}
+        {{ form.kin_contact }}
+    </div>
+    <div class="form-group">
+        {{ form.kin_email.label_tag }}
+        {{ form.kin_email }}
+    </div>
+    <div class="form-group">
+        {{ form.department_id.label_tag }}
+        {{ form.department_id }}
+    </div>
+    <div class="form-group">
+        {{ form.course_level_id.label_tag }}
+        {{ form.course_level_id }}
+    </div>
+    <div class="form-group">
+        {{ form.course_name_id.label_tag }}
+        {{ form.course_name_id }}
+    </div>
+    <div class="form-group">
+        {{ form.learning_mode.label_tag }}
+        {{ form.learning_mode }}
+    </div>
+    <div class="form-group">
+        {{ form.preferred_semester.label_tag }}
+        {{ form.preferred_semester }}
+    </div>
+    <div class="form-group">
+        {{ form.schools_attended.label_tag }}
+        {{ form.schools_attended }}
+    </div>
+    <div class="form-group">
+        {{ form.financing.label_tag }}
+        {{ form.financing }}
+    </div>
+    <div class="form-group">
+        {{ form.preferred_campus.label_tag }}
+        {{ form.preferred_campus }}
+    </div>
+    <div class="form-group">
+        {{ form.need_accommodation.label_tag }}
+        {{ form.need_accommodation }}
+    </div>
+    <div class="form-group">
+        {{ form.uploadcertificates.label_tag }}
+        {{ form.uploadcertificates }}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+                                          
+                                              
+                                 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /#page-wrapper -->
+        
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{% static 'assets/js/metisMenu.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'assets/js/startmin.js' %}"></script>
+
+
+</body>
+{% include 'sharedfiles/footer.html' %}
+
+</html>

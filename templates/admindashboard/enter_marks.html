@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Enter Marks</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'assets/css/metisMenu.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/css/startmin.css' %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        {% include 'sharedfiles/topnavigation.html' %}
+        {% include 'admindashboard/navigation.html' %}
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">Enter Marks for {{ unit_registration.approved_student.student.username }} (ID: {{ unit_registration.approved_student.student.student_id }})</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Please enter the marks carefully for the selected unit and assessment.
+                            </div>
+                            <div class="panel-body">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="unit_code">Unit Code:</label>
+                                        <input type="text" class="form-control" id="unit_code" value="{{ unit_registration.unit_code }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unit_name">Unit Name:</label>
+                                        <input type="text" class="form-control" id="unit_name" value="{{ unit_registration.unit_name }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="term">Term:</label>
+                                        <input type="text" class="form-control" id="term" value="{{ unit_registration.term }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="assessment_type">Assessment Type:</label>
+                                        {{ form.assessment_type }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="marks">Marks:</label>
+                                        {{ form.marks }}
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{% static 'assets/js/metisMenu.min.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'assets/js/startmin.js' %}"></script>
+</body>
+{% include 'sharedfiles/footer.html' %}
+</html>

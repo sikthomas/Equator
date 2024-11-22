@@ -1,0 +1,25 @@
+<!-- student_approval_form.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Approval</title>
+    <link rel="stylesheet" href="{% static 'path/to/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Approval Form</h2>
+        <form method="post" class="form-horizontal">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+{% include 'sharedfiles/footer.html' %}
+</html>

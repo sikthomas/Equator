@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+    <title>Student-Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'assets/css/metisMenu.min.css' %}" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="{% static 'assets/css/timeline.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/css/startmin.css' %}" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static 'assets/css/morris.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+>
+    
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    {% include 'sharedfiles/topnavigation.html' %}
+    {% include 'student/navigation.html' %}
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Student Portal</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <!-- Center the panel by using col-lg-8 and col-md-8 with offset classes -->
+              <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
+    <div class="panel panel-green">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-3">
+                    <i class="fa fa-graduation-cap fa-5x"></i>
+                </div>
+                <div class="col-xs-9">
+                    {% if myacademic_info %}
+                     
+                            <p><strong>{{ myacademic_info.student_id.first_name }}  {{ myacademic_info.student_id.last_name }}</strong> </p>
+                            <p><strong>Department:</strong> {{ myacademic_info.department_id.department_name }}</p>
+                            <p><strong>Level :</strong> {{ myacademic_info.course_level_id.courselevel_name }}</p>
+                            <p><strong>Course:</strong> {{ myacademic_info.course_name_id.course_name }}</p>
+                   
+                    {% else %}
+                        <p>No academic information available.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <a href="#">
+            <div class="panel-footer">
+                <span class="pull-left"> </span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+            </div>
+        </a>
+    </div>
+</div>
+
+                <!-- /.col-lg-8 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- /#wrapper -->
+
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="{% static 'assets/js/metisMenu.min.js' %}"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="{% static 'assets/js/raphael.min.js' %}"></script>
+<script src="{% static 'assets/js/morris.min.js' %}"></script>
+<script src="{% static 'assets/js/morris-data.js' %}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{% static 'assets/js/startmin.js' %}"></script>
+
+</body>
+{% include 'sharedfiles/footer.html' %}
+</html>
+

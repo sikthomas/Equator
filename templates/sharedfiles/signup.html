@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Signup</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'assets/css/metisMenu.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/css/startmin.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <style>
+        .signup-container {
+            margin-top: 50px;
+        }
+        .signup-panel {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container signup-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="login-panel panel panel-default signup-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign Up</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" method="post" action="{% url 'signup' %}">
+                            {% csrf_token %}
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="First Name" name="first_name" type="text" value="{{ form.first_name.value|default_if_none:'' }}" required autofocus>
+                                    {% if form.first_name.errors %}
+                                        <div class="alert alert-danger">
+                                            {% for error in form.first_name.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Last Name" name="last_name" type="text" value="{{ form.last_name.value|default_if_none:'' }}" required>
+                                    {% if form.last_name.errors %}
+                                        <div class="alert alert-danger">
+                                            {% for error in form.last_name.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Username" name="username" type="text" value="{{ form.username.value|default_if_none:'' }}" required>
+                                    {% if form.username.errors %}
+                                        <div class="alert alert-danger">
+                                            {% for error in form.username.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" value="{{ form.email.value|default_if_none:'' }}" required>
+                                    {% if form.email.errors %}
+                                        <div class="alert alert-danger">
+                                            {% for error in form.email.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password1" type="password" required>
+                                    {% if form.password1.errors %}
+                                        <div class="alert alert-danger">
+                                            {% for error in form.password1.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Confirm Password" name="password2" type="password" required>
+                                    {% if form.password2.errors %}
+                                        <div class="alert alert-danger">
+                                            {% for error in form.password2.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Register</button>
+                                <p><a href="{% url 'login' %}">Already have an account? Login</a></p>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{% static 'assets/js/metisMenu.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'assets/js/startmin.js' %}"></script>
+</body>
+{% include 'sharedfiles/footer.html' %}
+</html>
