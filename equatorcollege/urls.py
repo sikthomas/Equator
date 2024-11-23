@@ -1,10 +1,8 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from django.conf import settings
 from django.conf.urls.static import static
-
-
+from django.conf import settings
 
 urlpatterns = [
     path('signup/', views.signup, name='signup'),
@@ -23,8 +21,7 @@ urlpatterns = [
     path('approve_student/<int:pk>/', views.approve_student, name='approve_student'),
     path('students/approvedlist/', views.approvedlist, name='approvedlist'),
     path('student/approvedlist-addunits/', views.approvedlist_addunits, name='approvedlist_addunits'),
-   
-    
+
     path('approve_student/details/<int:pk>/', views.approved_student_details, name='approved_student_details'),
     path('units/register-units/<int:pk>/', views.register_units, name='register_units'),
     path('units/view-units/<int:pk>/', views.view_units, name='view_units'),
@@ -33,6 +30,4 @@ urlpatterns = [
     path('social-sciences/shs/', views.bcom_list, name='shs'),
     path('units/view-myunits/', views.view_myunits, name='view_myunits'),
    
-]
-if settings.DEBUG:  # Make sure this only runs in development
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
