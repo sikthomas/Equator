@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <title>Login</title>
 
@@ -28,9 +28,14 @@
 
     <!-- Custom styles for this template -->
     <style>
+        body {
+            background-color: #E4D00A; /* Set background color for the entire page */
+        }
+
         .login-container {
             margin-top: 100px;
         }
+
         .login-panel {
             width: 100%;
             max-width: 400px;
@@ -39,6 +44,10 @@
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        .panel-heading {
+            text-align: center; /* Center the "Please Sign In" text */
+        }
     </style>
 </head>
 
@@ -46,10 +55,8 @@
     <div class="container login-container">
         <div class="row">
             <div class="col-md-12">
-                
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-            
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">

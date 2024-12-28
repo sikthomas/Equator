@@ -12,8 +12,8 @@ class Usertype(models.Model):
 
 
 class Department(models.Model):
-    department_code=models.CharField(max_length=10)
-    department_name = models.CharField(max_length=50)
+    department_code=models.CharField(max_length=10,unique=True)
+    department_name = models.CharField(max_length=50,unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

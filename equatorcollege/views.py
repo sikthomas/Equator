@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import UserRegistrationForm,StudentInformationForm,StudentApprovalForm,UnitRegistrationForm
+from .forms import UserRegistrationForm,StudentInformationForm,StudentApprovalForm,UnitRegistrationForm,DepartmentForm,CourseLevelForm,CourseNameForm
 from django.shortcuts import render, redirect,HttpResponse
 from django.contrib.auth import login, authenticate,logout
 from django.contrib import messages
@@ -226,7 +226,7 @@ def approve_student(request, pk):
 
             approve_student = form.save(commit=False)
             approve_student.student = student_info
-            approve_student.approved_by = request.user
+            approve_student.approved_by = request.user 
             approve_student.approval_date = now()
 
             department_code = student_info.department_id.department_code
@@ -240,10 +240,12 @@ def approve_student(request, pk):
                 prefix = f"{department_code.upper()}/C"
             elif course_level_code.lower() == 'art':
                 prefix = f"{department_code.upper()}/A"
-            elif course_level_code.lower() == 'cp':
+            elif course_level_code.lower() == 'pack':
                 prefix = f"{department_code.upper()}/CP"
-            elif course_level_code.lower() == 'p':
+            elif course_level_code.lower() == 'pro':
                 prefix = f"{department_code.upper()}/P"
+            elif course_level_code.lower() == 'kiti':
+                prefix = f"{department_code.upper()}/KITI"
             else:
                 prefix = f"{department_code.upper()}/O"
 
@@ -381,3 +383,76 @@ def view_myunits(request):
         return render(request, 'student/view_units.html', {'units': units})
     else:
          return render(request, 'student/no_unit.html')
+    
+@login_required
+def department(request):
+    if request.method == "POST":
+        form = DepartmentForm(request.POST)
+        if form.is_valid():
+            department = form.save(commit=False)  # Don't save yet, we'll set department_code and user manually
+            
+            department_name = department.department_name
+            # Set department_code based on department_name
+            if department_name == "Health and Social Sciences":
+                department.department_code = "SHS"
+            elif department_name == "ICT and Engineering":
+                department.department_code = "SCI"
+            elif department_name == "Business and Management":
+                department.department_code = "SBM"
+            else:
+                # If no valid department is selected, add a form error
+                form.add_error('department_name', 'Please select a valid department.')
+                return render(request, 'admindashboard/add_department.html', {'form': form})
+            
+            # Assign the current logged-in user
+            department.user = request.user
+            
+            # Save the department object to the database
+            department.save()
+            return redirect('index')  # Redirect to index after saving
+
+    else:
+        form = DepartmentForm()  # Blank form for GET requests
+
+    return render(request, 'admindashboard/add_department.html', {'form': form})
+
+@login_required
+def courselevel(request):
+    if request.method == "POST":
+        form = CourseLevelForm(request.POST)
+        if form.is_valid():
+            courelevel = form.save(commit=False)  
+            
+            courselevel_name = courelevel.courselevel_name
+            if courselevel_name == "Diploma":
+                courelevel.course_level_code = "Dip"
+            elif courselevel_name == "Certificate":
+                courelevel.course_level_code = "Cert"
+            elif courselevel_name == "Artisan":
+                courelevel.course_level_code = "Art"
+            elif courselevel_name == "Packages":
+                courelevel.course_level_code = "Pack"
+            elif courselevel_name == "Programming":
+                courelevel.course_level_code = "Pro"
+            elif courselevel_name == "KITI":
+                courelevel.course_level_code = "KITI"
+            else:
+                form.add_error('courselevel_name', 'Please select a valid course level name.')
+                return render(request, 'admindashboard/add_courselevel.html', {'form': form})
+            courelevel.user = request.user
+            courelevel.save()
+            return redirect('index') 
+    else:
+        form = CourseLevelForm()  
+    return render(request, 'admindashboard/add_courselevel.html', {'form': form})
+
+@login_required
+def coursename(request):
+    if request.method == "POST":
+        form = CourseNameForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index') 
+    else:
+        form = CourseNameForm()  
+    return render(request, 'admindashboard/add_coursename.html', {'form': form})

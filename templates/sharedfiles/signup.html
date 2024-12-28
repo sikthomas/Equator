@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -26,9 +27,14 @@
     <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 
     <style>
+        body {
+            background-color: #E4D00A; /* Set background color for the entire page */
+        }
+
         .signup-container {
             margin-top: 50px;
         }
+
         .signup-panel {
             width: 100%;
             max-width: 400px;
@@ -37,8 +43,13 @@
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        .panel-heading {
+            text-align: center; /* Center the "Please Sign Up" text */
+        }
     </style>
 </head>
+
 <body>
     <div class="container signup-container">
         <div class="row">

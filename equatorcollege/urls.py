@@ -29,5 +29,9 @@ urlpatterns = [
     path('business/business_students/', views.bcom_list, name='business_students'),
     path('social-sciences/shs/', views.bcom_list, name='shs'),
     path('units/view-myunits/', views.view_myunits, name='view_myunits'),
+
+    path('add_department/',views.department,name='add_department'),
+    path('add_courselevel/',views.courselevel,name='add_courselevel'),
+    path('add_coursename/',views.coursename,name='add_coursename'),
    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,42 +1,34 @@
-<aside class="sidebar navbar-default" role="navigation">
+<aside class="sidebar navbar-default" role="navigation" style="background-color: yellow; border-radius: 20px; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 250px; margin-right: 15px;">
     <div class="sidebar-nav navbar-collapse">
-        <ul class="nav" id="side-menu">
-            <li class="sidebar-search">
-                <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </span>
-                </div>
-                <!-- /input-group -->
-            </li>
-            <li>
-                <a href="{% url 'index' %}" class="active"><i class="fa fa-dashboard fa-fw"></i> Student Admin Dashboard</a>
+        <ul class="nav" id="side-menu" style="list-style: none; padding-left: 0;">
+        
+            <li style="margin-bottom: 10px;">
+                <a href="{% url 'index' %}" class="active" style="display: block; padding: 10px; color: black; text-decoration: none; border-radius: 10px; background-color: #f39c12; transition: background-color 0.3s ease;">
+                    <i class="fa fa-dashboard fa-fw" style="font-size: 24px;"></i>
+                    <span style="font-size: 18px;">Student Admin</span>
+                </a>
             </li>
             
-                <ul class="nav">
-                    <li>
-                        <a href="{% url 'admission' %}">
-                         <span class="glyphicon glyphicon-plus"></span>
-                        Add Student</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'approvedlist' %}">
-                           <span class="glyphicon glyphicon-th-large"></span>
-                        Approved</a>
-                    </li>
-                     <li>
+            <ul class="nav" style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 10px;">
+                    <a href="{% url 'admission' %}" style="display: block; padding: 10px; color: black; text-decoration: none; border-radius: 10px; transition: background-color 0.3s ease;">
+                       <span class="glyphicon glyphicon-plus-sign"></span> Add Student
+                    </a>
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <a href="{% url 'approvedlist' %}" style="display: block; padding: 10px; color: black; text-decoration: none; border-radius: 10px; transition: background-color 0.3s ease;">
+                         <span class="glyphicon glyphicon-ok"></span> Approved students
+                    </a>
+                </li>
+                <li style="margin-bottom: 10px;">
                     <form action="{% url 'logout' %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-link">
-                          <span class="glyphicon glyphicon-log-out"></span>
-                        Logout</button>
+                        <button type="submit" class="btn btn-link" style="color: black; background-color: transparent; text-decoration: none;">
+                            <span class="glyphicon glyphicon-log-out"></span> Logout
+                        </button>
                     </form>
                 </li>
-                </ul>
-            </li>
+            </ul>
         </ul>
     </div>
 </aside>

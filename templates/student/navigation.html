@@ -1,41 +1,46 @@
-<aside class="sidebar navbar-default" role="navigation">
+<aside class="sidebar navbar-default" role="navigation" style="background-color: yellow; border-radius: 20px; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 250px; margin-right: 15px;">
     <div class="sidebar-nav navbar-collapse">
-        <ul class="nav" id="side-menu">
-            <li class="sidebar-search">
-                <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" placeholder="Search...">
+        <ul class="nav" id="side-menu" style="list-style: none; padding-left: 0;">
+            <li class="sidebar-search" style="margin-bottom: 20px;">
+                <div class="input-group custom-search-form" style="margin-bottom: 20px;">
+                    <input type="text" class="form-control" placeholder="Search..." style="border-radius: 10px; padding-left: 15px;">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
+                        <button class="btn btn-primary" type="button" style="border-radius: 10px;">
                             <i class="fa fa-search"></i>
                         </button>
                     </span>
                 </div>
-                <!-- /input-group -->
             </li>
-            <li>
-                <a href="{% url 'index' %}" class="active"><i class="fa fa-dashboard fa-fw"></i> Student Portal</a>
+            <li style="margin-bottom: 10px;">
+                <a href="{% url 'index' %}" class="active" style="display: block; padding: 10px; color: black; text-decoration: none; border-radius: 10px; background-color: #f39c12; transition: background-color 0.3s ease;">
+                    <i class="fa fa-dashboard fa-fw" style="font-size: 24px;"></i>
+                    <span style="font-size: 18px;">Student Portal</span>
+                </a>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-bank" style="font-size:15px;color:rgb(116, 188, 230)0, 247, 255"></i> Academics<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{% url 'view_myunits' %}">
-                        <span class="glyphicon glyphicon-folder-open"></span>
-                        View Units</a>
+            <li style="margin-bottom: 10px;">
+                <a href="#" style="display: block; padding: 10px; color: black; text-decoration: none; border-radius: 10px; transition: background-color 0.3s ease;">
+                    <i class="fa fa-bank" style="font-size: 18px; color: rgb(116, 188, 230);"></i> 
+                    Academics <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level" style="list-style: none; padding-left: 0; background-color: #f9f9f9; border-radius: 10px; margin-left: 20px;">
+                    <li style="margin-bottom: 10px;">
+                        <a href="{% url 'view_myunits' %}" style="display: block; padding: 10px; color: black; text-decoration: none; border-radius: 10px; transition: background-color 0.3s ease;">
+                            <span class="glyphicon glyphicon-folder-open"></span> View Units
+                        </a>
                     </li>
-                    <li>
-                        <a href="#">
-                         <span class="glyphicon glyphicon-folder-open"></span>
-                        View Marks</a>
+                    <li style="margin-bottom: 10px;">
+                        <a href="#" style="display: block; padding: 10px; color: black; text-decoration: none; border-radius: 10px; transition: background-color 0.3s ease;">
+                            <span class="glyphicon glyphicon-folder-open"></span> View Marks
+                        </a>
                     </li>
-                     <li>
-                    <form action="{% url 'logout' %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-link">
-                          <span class="glyphicon glyphicon-log-out"></span>
-                        Logout</button>
-                    </form>
-                </li>
+                    <li style="margin-bottom: 10px;">
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link" style="color: black; background-color: transparent; text-decoration: none;">
+                                <span class="glyphicon glyphicon-log-out"></span> Logout
+                            </button>
+                        </form>
+                    </li>
                 </ul>
             </li>
         </ul>
